@@ -452,7 +452,8 @@ need_to_store(LServer, #message{type = Type} = Packet) ->
 	false ->
 	    case misc:unwrap_mucsub_message(Packet) of
 		#message{type = groupchat} = Msg ->
-		    need_to_store(LServer, Msg#message{type = chat});
+		   % need_to_store(LServer, Msg#message{type = chat});
+                   false;
 		#message{} = Msg ->
 		    need_to_store(LServer, Msg);
 		_ ->
